@@ -1,6 +1,69 @@
+// Defines the sequence and timing for the code simulation lines
+// Defines the sequence and timing for the code simulation lines
+const codeLines = [
+    { id: 'line-1', delay: 200 },
+    { id: 'line-2', delay: 1000 },
+    { id: 'line-3', delay: 1800 },
+    { id: 'line-4', delay: 2600 },
+    { id: 'line-5', delay: 3200 },
+];
+// Total time before fade-out starts
+const loadingDuration = 3500;
+
+/**
+ * Simulates the code being typed by revealing lines sequentially.
+ */
+function runCodeSimulation() {
+    codeLines.forEach(lineConfig => {
+        const lineElement = document.getElementById(lineConfig.id);
+        if (lineElement) {
+            // Set a timeout to reveal the line based on its delay
+            setTimeout(() => {
+                // CSS transition handles the smooth reveal
+                lineElement.style.opacity = '1';
+            }, lineConfig.delay);
+        }
+    });
+}
+
+/**
+ * Main initialization logic for the preloader.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const preloader = document.getElementById('preloader');
+    const loadingBar = document.getElementById('loading-bar');
+
+    // 1. Start code simulation immediately
+    runCodeSimulation();
+
+    // 2. Start the loading bar animation
+    if (loadingBar) {
+        // Set the width to 100% after a small delay to trigger the CSS transition
+        setTimeout(() => {
+            loadingBar.style.width = '100%';
+        }, 50);
+    }
+
+    // 3. Hide preloader after the total animation duration
+    setTimeout(() => {
+        if (preloader) {
+            // Start the fade-out transition
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                // Completely remove it from the flow after fade-out completes
+                preloader.style.display = 'none';
+                console.log("Preloader finished. Main content ready.");
+                // In a real application, you would make the main content visible here
+            }, 500);
+        }
+    }, loadingDuration);
+});
+
+
+
 // Enhanced Portfolio JavaScript with Modern Features
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize all features
     initSmoothScrolling();
     initNavbarScroll();
@@ -17,27 +80,28 @@ document.addEventListener('DOMContentLoaded', function() {
     initProgressBar();
 });
 
+
 // ===== SMOOTH SCROLLING =====
 function initSmoothScrolling() {
     // Select all anchor links that start with #
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            
+
             if (targetSection) {
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
                 const targetPosition = targetSection.offsetTop - navbarHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
+
                 // Update active nav link
                 updateActiveNavLink(targetId);
             }
@@ -45,30 +109,31 @@ function initSmoothScrolling() {
     });
 }
 
+
 // ===== NAVBAR SCROLL EFFECT =====
 function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         // Add scrolled class for background effect
         if (scrollTop > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-        
+
         // Hide/show navbar on scroll
         if (scrollTop > lastScrollTop && scrollTop > 100) {
             navbar.style.transform = 'translateY(-100%)';
         } else {
             navbar.style.transform = 'translateY(0)';
         }
-        
+
         lastScrollTop = scrollTop;
-        
+
         // Update active section
         updateActiveSection();
     });
@@ -80,20 +145,21 @@ function initTypewriterEffect() {
         'Java Developer',
         'Full-Stack Engineer',
         'Problem Solver',
-        'Tech Enthusiast'
+        'Tech Enthusiast',
+        'AIML Developer'
     ];
-    
+
     const typingElement = document.getElementById('typing-text');
     if (!typingElement) return;
-    
+
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     let typingSpeed = 100;
-    
+
     function typeWriter() {
         const currentText = texts[textIndex];
-        
+
         if (isDeleting) {
             typingElement.textContent = currentText.substring(0, charIndex - 1);
             charIndex--;
@@ -103,7 +169,7 @@ function initTypewriterEffect() {
             charIndex++;
             typingSpeed = 100;
         }
-        
+
         if (!isDeleting && charIndex === currentText.length) {
             setTimeout(() => {
                 isDeleting = true;
@@ -112,10 +178,10 @@ function initTypewriterEffect() {
             isDeleting = false;
             textIndex = (textIndex + 1) % texts.length;
         }
-        
+
         setTimeout(typeWriter, typingSpeed);
     }
-    
+
     typeWriter();
 }
 
@@ -125,17 +191,17 @@ function initScrollAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                
+
                 // Trigger skill bars animation
                 if (entry.target.classList.contains('skills')) {
                     animateSkillBars();
                 }
-                
+
                 // Trigger counter animation
                 if (entry.target.classList.contains('stats')) {
                     animateCounters();
@@ -143,7 +209,7 @@ function initScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     // Observe elements for animation
     const animateElements = document.querySelectorAll('.about, .skills, .education, .projects, .contact, .timeline-item, .project-card, .stat');
     animateElements.forEach(el => {
@@ -159,7 +225,7 @@ function initSkillBars() {
 
 function animateSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
-    
+
     skillBars.forEach(bar => {
         const width = bar.getAttribute('data-width');
         setTimeout(() => {
@@ -171,16 +237,16 @@ function animateSkillBars() {
 // ===== COUNTER ANIMATION =====
 function animateCounters() {
     const counters = document.querySelectorAll('.stat h3');
-    
+
     counters.forEach(counter => {
         const target = parseInt(counter.textContent.replace('+', ''));
         const increment = target / 50;
         let current = 0;
-        
+
         const timer = setInterval(() => {
             current += increment;
             counter.textContent = Math.ceil(current) + '+';
-            
+
             if (current >= target) {
                 counter.textContent = target + '+';
                 clearInterval(timer);
@@ -193,34 +259,34 @@ function animateCounters() {
 function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
-    
-    form.addEventListener('submit', function(e) {
+
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Get form data
         const formData = new FormData(form);
         const name = formData.get('name');
         const email = formData.get('email');
         const message = formData.get('message');
-        
+
         // Simple validation
         if (!name || !email || !message) {
             showNotification('Please fill in all fields', 'error');
             return;
         }
-        
+
         if (!isValidEmail(email)) {
             showNotification('Please enter a valid email address', 'error');
             return;
         }
-        
+
         // Simulate form submission
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
-        
+
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
-        
+
         setTimeout(() => {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
@@ -234,14 +300,14 @@ function initContactForm() {
 function initMobileMenu() {
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.navbar ul');
-    
+
     if (!mobileToggle || !navLinks) return;
-    
-    mobileToggle.addEventListener('click', function() {
+
+    mobileToggle.addEventListener('click', function () {
         navLinks.classList.toggle('mobile-menu-open');
         this.classList.toggle('active');
     });
-    
+
     // Close menu when clicking on a link
     const navLinkItems = document.querySelectorAll('.navbar ul li a');
     navLinkItems.forEach(link => {
@@ -267,9 +333,9 @@ function initParticleBackground() {
         z-index: -1;
         overflow: hidden;
     `;
-    
+
     document.body.appendChild(particleContainer);
-    
+
     // Create particles
     for (let i = 0; i < 50; i++) {
         createParticle(particleContainer);
@@ -288,9 +354,9 @@ function createParticle(container) {
         left: ${Math.random() * 100}%;
         top: ${Math.random() * 100}%;
     `;
-    
+
     container.appendChild(particle);
-    
+
     // Remove particle after animation
     setTimeout(() => {
         if (particle.parentNode) {
@@ -303,28 +369,28 @@ function createParticle(container) {
 // ===== PROJECT CARD ANIMATIONS =====
 function initProjectCardAnimations() {
     const projectCards = document.querySelectorAll('.project-card');
-    
+
     projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-15px) rotateX(5deg)';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) rotateX(0)';
         });
-        
+
         // 3D tilt effect
-        card.addEventListener('mousemove', function(e) {
+        card.addEventListener('mousemove', function (e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateX = (y - centerY) / 10;
             const rotateY = (centerX - x) / 10;
-            
+
             this.style.transform = `translateY(-15px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
     });
@@ -353,11 +419,11 @@ function initScrollToTop() {
         z-index: 1000;
         box-shadow: var(--shadow-primary);
     `;
-    
+
     document.body.appendChild(scrollTopBtn);
-    
+
     // Show/hide button on scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.pageYOffset > 300) {
             scrollTopBtn.style.opacity = '1';
             scrollTopBtn.style.transform = 'translateY(0)';
@@ -366,9 +432,9 @@ function initScrollToTop() {
             scrollTopBtn.style.transform = 'translateY(100px)';
         }
     });
-    
+
     // Scroll to top on click
-    scrollTopBtn.addEventListener('click', function() {
+    scrollTopBtn.addEventListener('click', function () {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -398,14 +464,14 @@ function initCursorEffect() {
             z-index: 9999;
             transition: transform 0.1s ease;
         `;
-        
+
         document.body.appendChild(cursor);
-        
+
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX - 10 + 'px';
             cursor.style.top = e.clientY - 10 + 'px';
         });
-        
+
         // Scale cursor on hover over interactive elements
         const interactiveElements = document.querySelectorAll('a, button, .project-card, .contact-item');
         interactiveElements.forEach(el => {
@@ -433,14 +499,14 @@ function initProgressBar() {
         z-index: 1001;
         transition: width 0.1s ease;
     `;
-    
+
     document.body.appendChild(progressBar);
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         const scrollTop = window.pageYOffset;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = (scrollTop / docHeight) * 100;
-        
+
         progressBar.style.width = scrollPercent + '%';
     });
 }
@@ -460,11 +526,11 @@ function updateActiveNavLink(targetId) {
 function updateActiveSection() {
     const sections = document.querySelectorAll('section, .home, .about, .skills, .education, .projects, .contact');
     const navbarHeight = document.querySelector('.navbar').offsetHeight;
-    
+
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
         const sectionId = section.id;
-        
+
         if (rect.top <= navbarHeight && rect.bottom >= navbarHeight) {
             updateActiveNavLink(sectionId);
         }
@@ -494,15 +560,15 @@ function showNotification(message, type) {
         transition: all 0.3s ease;
         ${type === 'success' ? 'background: #10b981;' : 'background: #ef4444;'}
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Show notification
     setTimeout(() => {
         notification.style.opacity = '1';
         notification.style.transform = 'translateY(0)';
     }, 100);
-    
+
     // Hide notification
     setTimeout(() => {
         notification.style.opacity = '0';
@@ -514,7 +580,7 @@ function showNotification(message, type) {
 }
 
 // ===== KEYBOARD NAVIGATION =====
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     // Press 'H' to go to home
     if (e.key.toLowerCase() === 'h' && !e.ctrlKey && !e.altKey) {
         const homeSection = document.getElementById('home');
@@ -522,7 +588,7 @@ document.addEventListener('keydown', function(e) {
             homeSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
-    
+
     // Press 'C' to go to contact
     if (e.key.toLowerCase() === 'c' && !e.ctrlKey && !e.altKey) {
         const contactSection = document.getElementById('contact');
@@ -547,7 +613,7 @@ function throttle(func, wait) {
 }
 
 // Apply throttling to scroll events
-const throttledScrollHandler = throttle(function() {
+const throttledScrollHandler = throttle(function () {
     updateActiveSection();
 }, 100);
 
@@ -594,7 +660,7 @@ document.head.appendChild(style);
 // ===== LAZY LOADING FOR IMAGES =====
 function initLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -605,7 +671,7 @@ function initLazyLoading() {
             }
         });
     });
-    
+
     images.forEach(img => imageObserver.observe(img));
 }
 

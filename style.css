@@ -1,3 +1,135 @@
+/* New Green Theme Colors (Matching the GitHub Dark aesthetic) */
+:root {
+    --bg-dark: #0d1117;
+    /* GitHub Dark Background */
+    --accent-green: #238636;
+    /* GitHub Green Accent */
+    --text-light: #c9d1d9;
+    /* Light Gray Text */
+    --border-medium: #30363d;
+    /* Medium Gray Border/Container */
+}
+
+
+
+.code-font {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* --- Code Simulation Styles --- */
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-dark);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.code-line {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    /* Cursor color uses the Accent Green */
+    border-right: 0.15em solid var(--accent-green);
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--accent-green);
+    }
+}
+
+.compiling-line {
+    border-right: none;
+    animation: none;
+}
+
+/* --- Neural Network Styles --- */
+.neuron {
+    width: 0.625rem;
+    height: 0.625rem;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 5px var(--accent-green);
+    animation: pulse 1s infinite alternate;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 1;
+        /* Shadow color uses the Accent Green */
+        box-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green);
+    }
+}
+
+/* Positioning for a 3-layer look */
+.layer-1 {
+    left: 15%;
+}
+
+.layer-2 {
+    left: 50%;
+}
+
+.layer-3 {
+    left: 85%;
+}
+
+.top-neuron {
+    top: 10%;
+}
+
+.mid-neuron {
+    top: 50%;
+}
+
+.bottom-neuron {
+    top: 90%;
+}
+
+/* SVG Line Animation CSS */
+@keyframes signal-flow {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -400;
+    }
+}
+
+.signal-line {
+    /* Line color uses the Accent Green */
+    stroke: var(--accent-green);
+    stroke-width: 1.5;
+    fill: none;
+    stroke-dasharray: 20 10;
+    animation: signal-flow 4s linear infinite;
+    opacity: 0.7;
+}
+
+
 /* CSS Reset and Base Styles */
 * {
     margin: 0;
@@ -6,14 +138,14 @@
 }
 
 :root {
-    --primary-color: #007396;
+    --primary-color: #32d663;
     --secondary-color: #f89820;
     --accent-color: #00d4ff;
     --dark-bg: #0a0a0a;
-    --card-bg: #1a1a1a;
+    --card-bg: #181257;
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
-    --gradient-primary: linear-gradient(135deg, #007396, #00d4ff);
+    --gradient-primary: linear-gradient(135deg, #32d663, #00d4ff);
     --gradient-secondary: linear-gradient(135deg, #f89820, #ff6b6b);
     --shadow-primary: 0 10px 30px rgba(0, 115, 150, 0.3);
     --shadow-secondary: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -27,7 +159,7 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--dark-bg);
+    background: rgb(240, 240, 176);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -135,6 +267,7 @@ body {
 }
 
 /* HOME SECTION */
+
 .home {
     min-height: 100vh;
     display: grid;
@@ -143,6 +276,7 @@ body {
     padding: 0 2rem;
     margin-top: 80px;
     gap: 4rem;
+    background: rgb(240, 240, 176);
 }
 
 .home-text {
@@ -292,10 +426,12 @@ body {
 }
 
 /* ABOUT SECTION */
+
 .about {
     padding: 6rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: rgb(240, 240, 176);
 }
 
 .section-title {
@@ -344,7 +480,7 @@ body {
     padding: 1.5rem;
     background: var(--card-bg);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(242, 202, 202, 0.1);
     transition: var(--transition);
 }
 
@@ -360,9 +496,10 @@ body {
 }
 
 /* SKILLS SECTION */
+
 .skills {
     padding: 6rem 2rem;
-    background: var(--card-bg);
+    background: rgb(240, 240, 176);
 }
 
 .skills-container {
@@ -428,10 +565,12 @@ body {
 }
 
 /* EDUCATION SECTION */
+
 .education {
     padding: 6rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: rgb(240, 240, 176);
 }
 
 .timeline {
@@ -518,9 +657,10 @@ body {
 }
 
 /* PROJECTS SECTION */
+
 .projects {
     padding: 6rem 2rem;
-    background: var(--card-bg);
+    background: rgb(240, 240, 176);
 }
 
 .projects-grid {
@@ -619,10 +759,12 @@ body {
 }
 
 /* CONTACT SECTION */
+
 .contact {
     padding: 6rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: rgb(240, 240, 176);
 }
 
 .contact-description {
@@ -715,8 +857,9 @@ body {
 
 
 /* FOOTER */
+
 .footer {
-    background: var(--card-bg);
+    background: rgb(15, 15, 15);
     padding: 3rem 2rem 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -786,7 +929,7 @@ body {
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(23, 18, 18, 0.1);
     color: var(--text-secondary);
 }
 
@@ -800,8 +943,15 @@ body {
 
 /* ANIMATIONS */
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 @keyframes fadeInUp {
@@ -809,6 +959,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -820,6 +971,7 @@ body {
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -831,6 +983,7 @@ body {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -853,57 +1006,57 @@ body {
     .navbar {
         padding: 1rem;
     }
-    
+
     .navbar ul {
         display: none;
     }
-    
+
     .mobile-menu-toggle {
         display: block;
     }
-    
+
     .home {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
         padding: 0 1rem;
     }
-    
+
     .home-buttons {
         justify-content: center;
     }
-    
+
     .image-container {
         width: 250px;
         height: 250px;
     }
-    
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .timeline-item {
         flex-direction: column !important;
     }
-    
+
     .timeline-content {
         max-width: 100%;
         margin: 2rem 0;
     }
-    
+
     .timeline-line {
         left: 30px;
     }
-    
+
     .timeline-icon {
         left: 30px;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -914,20 +1067,20 @@ body {
     .home-text h1 {
         font-size: 2rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .home-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .stats {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-item {
         flex-direction: column;
         text-align: center;

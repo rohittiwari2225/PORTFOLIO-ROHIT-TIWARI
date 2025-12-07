@@ -1,19 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Dey - Full Stack Java Developer Portfolio</title>
+    <title>Rohit Tiwari - Full Stack Java + ML Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+
+    <!-- ==================================== -->
+    <!-- HTML STRUCTURE SECTION (preloader.html) -->
+    <!-- ==================================== -->
+
+    <!-- PRELOADER: Fixed and visible on load -->
+    <div id="preloader">
+
+        <!-- Code Simulation Area -->
+        <div id="code-simulation" class="code-font text-sm md:text-base mb-8 max-w-xl w-full px-8 sm:px-0">
+            <!-- Code lines that will be revealed sequentially -->
+            <div id="line-1" class="code-line mb-1 text-[--accent-green]">>>> Initializing Data Science Portfolio
+                v2.0...</div>
+            <div id="line-2" class="code-line mb-1 text-[--text-light]">>>> import tensorflow as tf; import pandas as
+                pd;</div>
+            <div id="line-3" class="code-line mb-1 text-gray-400">// Connecting to distributed processing cluster
+                (Spark)</div>
+            <div id="line-4" class="code-line mb-1 text-[--text-light]">>>> Status: Model_A.h5 loaded. Accuracy: 0.985
+            </div>
+            <!-- Keeping compiling line as yellow for standard status alert color -->
+            <div id="line-5" class="code-line compiling-line mb-1 text-yellow-500 opacity-0 animate-pulse">Running
+                compilation checks... OK</div>
+        </div>
+
+        <!-- NEURAL NETWORK VISUALIZATION CONTAINER -->
+        <div id="neural-network" class="relative w-80 h-32 my-6">
+
+            <!-- SVG CONNECTIONS (Visual representation of data flow) -->
+            <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 320 128">
+                <!-- Connections from Input (Layer 1) to Hidden (Layer 2) -->
+                <line class="signal-line" x1="48" y1="13" x2="160" y2="13" />
+                <line class="signal-line" x1="48" y1="13" x2="160" y2="64" />
+                <line class="signal-line" x1="48" y1="13" x2="160" y2="115" />
+                <line class="signal-line" x1="48" y1="115" x2="160" y2="13" />
+                <line class="signal-line" x1="48" y1="115" x2="160" y2="64" />
+                <line class="signal-line" x1="48" y1="115" x2="160" y2="115" />
+                <!-- Connections from Hidden (Layer 2) to Output (Layer 3) -->
+                <line class="signal-line" x1="160" y1="13" x2="272" y2="64" />
+                <line class="signal-line" x1="160" y1="64" x2="272" y2="64" />
+                <line class="signal-line" x1="160" y1="115" x2="272" y2="64" />
+            </svg>
+
+            <!-- Neurons (Input, Hidden, Output) -->
+            <div class="neuron layer-1 top-neuron" style="animation-delay: 0.1s;"></div>
+            <div class="neuron layer-1 bottom-neuron" style="animation-delay: 0.3s;"></div>
+            <div class="neuron layer-2 top-neuron" style="animation-delay: 0.5s;"></div>
+            <div class="neuron layer-2 mid-neuron" style="animation-delay: 0.7s;"></div>
+            <div class="neuron layer-2 bottom-neuron" style="animation-delay: 0.9s;"></div>
+            <div class="neuron layer-3 mid-neuron" style="animation-delay: 1.2s;"></div>
+        </div>
+
+        <div class="text-xl font-mono text-[--text-light] mb-4">
+            Model Activation: Processing Data...
+        </div>
+        <!-- Progress bar background uses the medium gray -->
+        <div class="w-64 h-2 bg-[--border-medium] rounded-full overflow-hidden">
+            <!-- Loading bar fill uses the Accent Green -->
+            <div id="loading-bar" class="h-full bg-[--accent-green] shadow-lg shadow-[--accent-green]/50"
+                style="width: 0%; transition: width 3.0s ease-in-out;"></div>
+        </div>
+    </div>
+
+    <!-- ======================================= -->
+    <!-- JAVASCRIPT SECTION (Typically script.js) -->
+    <!-- ======================================= -->
+
+
+
     <!-- NAVBAR -->
     <nav class="navbar">
         <a href="#home" class="logo">
             <i class="fab fa-java"></i>
-            Abhishek Dey
+            Rohit Tiwari
         </a>
 
         <ul>
@@ -24,7 +96,7 @@
             <li class="nav-link"><a href="#projects">Projects</a></li>
             <li class="nav-link"><a href="#contact">Contact</a></li>
         </ul>
-        
+
         <div class="mobile-menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
@@ -33,21 +105,16 @@
     <!-- HOME SECTION -->
     <div id="home" class="home">
         <div class="home-text">
-            <h1>Hi, I'm <span class="highlight">Abhishek Dey</span></h1>
+            <h1>Hi, I'm <span class="highlight">Rohit Tiwari</span></h1>
             <div class="typing-container">
                 <p class="typewriter">
-                    <span id="typing-text">Java Developer | Software Engineer | Tech Enthusiast</span>
+                    <span id="typing-text">Java Developer | Software Engineer | Tech Enthusiast | AIML Developer</span>
                 </p>
             </div>
-            
-                <p class="description">
-                     Full Stack Java Developer skilled in building end-to-end web applications. 
-                     Proficient in <strong>HTML, CSS, JavaScript, and Bootstrap</strong> for responsive frontend design, 
-                     and experienced with <strong>Java, JSP, Servlets, and JDBC</strong> for robust backend development. 
-                     Strong understanding of <strong>MVC architecture</strong> and database management with <strong>MySQL</strong>. 
-                     Passionate about clean code, scalable solutions, and collaborative development using <strong>Git & GitHub</strong>. 
-                     Currently pursuing <strong>B.Tech in CSBS</strong>.
-                </p>
+
+            <p class="description">
+
+            </p>
 
 
             </p>
@@ -82,12 +149,23 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                   I’m a Full Stack Java Developer with expertise in building scalable web applications. 
-                   On the frontend, I work with <strong>HTML, CSS, JavaScript, and Bootstrap</strong> to create responsive and user-friendly interfaces. 
-                   For the backend, I specialize in <strong>Java, JDBC, JSP, and Servlets</strong>, following the <strong>MVC architecture</strong> for clean and maintainable code. 
-                I have hands-on experience with <strong>MySQL</strong> for database management and use <strong>Git & GitHub</strong> for version control and collaboration.
-               </p>
-                
+                    <strong>Full Stack Java Developer & Data Science</strong> Enthusiast skilled in building end-to-end
+                    web applications and intelligent data-driven solutions.
+                    Proficient in<strong> HTML, CSS, JavaScript</strong>, and <strong> Bootstrap</strong> for responsive
+                    frontend design, and experienced with <strong>Java, JSP, Servlets</strong>, and
+                    <strong>JDBC</strong> for robust backend development.
+                    Strong understanding of <strong>MVC</strong> architecture and database management with
+                    <strong>MySQL</strong>.
+
+                    Additionally, skilled in <strong>Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn,
+                        TensorFlow, and PyTorch</strong>, with hands-on experience in <strong>Data Analysis, Machine
+                        Learning, and Deep Learning projects</strong>.
+                    Passionate about clean code, scalable solutions, and collaborative development using <strong>Git &
+                        GitHub</strong>.
+                    Currently pursuing <strong>B.Tech in CSE(Data Science)</strong>.
+                </p>
+
+
                 <div class="stats">
                     <div class="stat">
                         <h3>1+</h3>
@@ -98,7 +176,7 @@
                         <p>Projects Completed</p>
                     </div>
                     <div class="stat">
-                        <h3>1+</h3>
+                        <h3>3+</h3>
                         <p>Technologies Mastered</p>
                     </div>
                 </div>
@@ -108,103 +186,137 @@
 
     <!-- SKILLS SECTION -->
     <div id="skills" class="skills">
-    <h1 class="section-title">Technical Skills</h1>
-    <div class="skills-container">
+        <h1 class="section-title">Technical Skills</h1>
+        <div class="skills-container">
 
-        <!-- Programming Languages -->
-        <div class="skill-category">
-            <h3><i class="fas fa-code"></i> Programming Languages</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fab fa-java skill-icon"></i>
-                    <span>Java SE / EE</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="90%"></div>
+            <!-- Programming Languages -->
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-java skill-icon"></i>
+                        <span>Java SE / EE</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-js-square skill-icon"></i>
-                    <span>JavaScript</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
+                    <div class="skill-item">
+                        <i class="fab fa-js-square skill-icon"></i>
+                        <span>JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Frontend / Markup & Styling -->
-        <div class="skill-category">
-            <h3><i class="fas fa-paint-brush"></i> Frontend / Styling</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fab fa-html5 skill-icon"></i>
-                    <span>HTML</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
+            <!-- Frontend / Markup & Styling -->
+            <div class="skill-category">
+                <h3><i class="fas fa-paint-brush"></i> Frontend / Styling</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <span>HTML</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt skill-icon"></i>
-                    <span>CSS</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <span>CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-bootstrap skill-icon"></i>
-                    <span>Bootstrap</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
+                    <div class="skill-item">
+                        <i class="fab fa-bootstrap skill-icon"></i>
+                        <span>Bootstrap</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Backend Technologies -->
-        <div class="skill-category">
-            <h3><i class="fas fa-cogs"></i> Backend Technologies</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fas fa-leaf skill-icon"></i>
-                    <span>JSP</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
+            <!-- Data Science / Machine Learning -->
+            <div class="skill-category">
+                <h3><i class="fas fa-robot"></i> Data Science & ML</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-python skill-icon"></i>
+                        <span>Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-server skill-icon"></i>
-                    <span>Servlet</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
+                    <div class="skill-item">
+                        <i class="fas fa-robot skill-icon"></i>
+                        <span>Machine Learning</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database skill-icon"></i>
-                    <span>JDBC</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
+                    <div class="skill-item">
+                        <i class="fas fa-brain skill-icon"></i>
+                        <span>Deep Learning</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Databases -->
-        <div class="skill-category">
-            <h3><i class="fas fa-database"></i> Databases</h3>
-            <div class="skills-grid">
-                
-                <div class="skill-item">
-                    <i class="fas fa-database skill-icon"></i>
-                    <span>MySQL</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="70%"></div>
+                    <div class="skill-item">
+                        <i class="fas fa-language skill-icon"></i>
+                        <span>NLP &amp; LLM Tools</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+            <!-- Backend Technologies -->
+            <div class="skill-category">
+                <h3><i class="fas fa-cogs"></i> Backend Technologies</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-leaf skill-icon"></i>
+                        <span>JSP</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-server skill-icon"></i>
+                        <span>Servlet</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span>JDBC</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Databases</h3>
+                <div class="skills-grid">
+
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span>MySQL</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
 
 
     <!-- EDUCATION SECTION -->
@@ -212,18 +324,19 @@
         <h1 class="section-title">Education</h1>
         <div class="timeline">
             <div class="timeline-line"></div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
                 <div class="timeline-content">
-                    <h3>B.Tech in Computer Science</h3>
-                    <p class="institution">Sagar Institute of Research & Technology, Bhopal</p>
-                    <p class="date">2022 - 2026</p>
+                    <h3>B.Tech in CSE(Data Science)</h3>
+                    <p class="institution">Technocrats Institute of Technology, Bhopal</p>
+                    <p class="date">2023 - 2027</p>
                     <p class="description">
-                        Focused on software engineering, data structures, algorithms, and modern development practices.
-                        Relevant coursework includes Object-Oriented Programming, Database Systems, and Web Technologies.
+                        Focused on software engineering, Data Science, data structures, algorithms, and modern development practices.
+                        Relevant coursework includes Object-Oriented Programming, Database Systems, and Web
+                        Technologies.
                     </p>
                 </div>
             </div>
@@ -234,8 +347,8 @@
                 </div>
                 <div class="timeline-content">
                     <h3>Higher Secondary</h3>
-                    <p class="institution">Red Rose School, Bhopal</p>
-                    <p class="date">2017 - 2021</p>
+                    <p class="institution">Morition Public School, Sidhi MP</p>
+                    <p class="date">2021 - 2022</p>
                     <p class="description">
                         Completed higher secondary education with focus on Science and Mathematics.
                         Developed strong analytical and problem-solving skills.
@@ -254,9 +367,42 @@
                     <i class="fas fa-shopping-cart project-icon"></i>
                 </div>
                 <div class="project-content">
+                    <h3>Web Scrappping Project</h3>
+                    <p>
+                        Developed a robust Review Scrapper Wev applications using Python, BeautifulSoup, Urllib, Flask, 
+                        and AWS for deployment. The application efficiently scrapes product reviews from e-commerce websites,
+                        processes the data, and presents it in a user-friendly interface.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">BeautifulSoup</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/rohittiwari2225/web_scrapping_project" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://web-scrapping-project-1glg.onrender.com/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-shopping-cart project-icon"></i>
+                </div>
+                <div class="project-content">
                     <h3>Student management System</h3>
                     <p>
-                       Developed a robust Student Management System using Java, JSP, Servlets, and Oracle 11g, featuring secure admin login, CRUD operations, and efficient student data handling through JDBC integration and role-based access.
+                        Developed a robust Student Management System using Java, JSP, Servlets, and Oracle 11g,
+                        featuring secure admin login, CRUD operations, and efficient student data handling through JDBC
+                        integration and role-based access.
                     </p>
                     <div class="tech-stack">
                         <span class="tech-tag">Servlet</span>
@@ -265,7 +411,72 @@
                         <span class="tech-tag">Java</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/abhishek-0-7/StudentManagementSystem" class="project-link">
+                        <a href="https://github.com/rohittiwari2225" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-shopping-cart project-icon"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Diamond Price Prediction</h3>
+                    <p>
+                        Developed a Diamond Price Prediction model using Python, Pandas, NumPy, Matplotlib, Seaborn,
+                        EDA, Data Analysis. Applied an Ensemble learning and Achived accuracy>90%.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Numpy</span>
+                        <span class="tech-tag">Data Visulization</span>
+                        <span class="tech-tag">EDA</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">Flask</span>
+
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/rohittiwari2225/DiamondPricePrediction2" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-shopping-cart project-icon"></i>
+                </div>
+                <div class="project-content">
+                    <h3>HireSence</h3>
+                    <p>
+                        Developed a robust Hiring Web application with AI, using Java, JSP, Servlets, and MySQL,
+                        featuring secure admin login, CRUD operations, and efficient candidate data handling through JDBC
+                        integration and role-based access.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Servlet</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JSP</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">AI</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/rohittiwari2225" class="project-link">
                             <i class="fab fa-github"></i>
                             GitHub
                         </a>
@@ -277,9 +488,9 @@
                 </div>
             </div>
 
-            
 
-            
+
+
 
             <div class="project-card">
                 <div class="project-image">
@@ -288,7 +499,7 @@
                 <div class="project-content">
                     <h3>Personal Portfolio Website</h3>
                     <p>
-                        Designed and developed a responsive personal portfolio website with modern UI/UX, 
+                        Designed and developed a responsive personal portfolio website with modern UI/UX,
                         3D animations, and optimized performance.
                     </p>
                     <div class="tech-stack">
@@ -298,11 +509,11 @@
                         <span class="tech-tag">Bootstrap</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/abhishek-0-7/myPortfolio.git" class="project-link">
+                        <a href="#" class="project-link">
                             <i class="fab fa-github"></i>
                             GitHub
                         </a>
-                        <a href="https://abhishek-0-7.github.io/myPortfolio/" class="project-link">
+                        <a href="#" class="project-link">
                             <i class="fas fa-external-link-alt"></i>
                             Live Demo
                         </a>
@@ -318,7 +529,7 @@
         <p class="contact-description">
             I'm always open to discussing new opportunities, collaborations, or just having a chat about technology!
         </p>
-        
+
         <div class="contact-content">
             <div class="contact-info">
                 <div class="contact-item">
@@ -327,7 +538,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Email</h3>
-                        <p>abhishekd7514@gmail.com</p>
+                        <p>rohittiwari2225@gmail.com</p>
                         <a href="mailto:abhishekd7514@gmail.com" class="contact-link">Send Email</a>
                     </div>
                 </div>
@@ -339,7 +550,8 @@
                     <div class="contact-details">
                         <h3>LinkedIn</h3>
                         <p>Connect with me professionally</p>
-                        <a href="https://www.linkedin.com/in/abhishek-deyy/" target="_blank" class="contact-link">View Profile</a>
+                        <a href="https://www.linkedin.com/in/rohittiwari22/" target="_blank" class="contact-link">View
+                            Profile</a>
                     </div>
                 </div>
 
@@ -350,18 +562,20 @@
                     <div class="contact-details">
                         <h3>GitHub</h3>
                         <p>Check out my code repositories</p>
-                        <a href="https://github.com/abhishek-0-7" target="_blank" class="contact-link">View Projects</a>
+                        <a href="https://github.com/rohittiwari2225" target="_blank" class="contact-link">View Projects</a>
                     </div>
                 </div>
 
-                
+
             </div>
 
             <div class="contact-form">
                 <h3>Send me a message</h3>
                 <div class="google-form">
-               <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf_qo2pxqdXWzBUhm18AKCin_mAYRbOgjQYJWexJgI5nqPcZA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-            </div>
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSf_qo2pxqdXWzBUhm18AKCin_mAYRbOgjQYJWexJgI5nqPcZA/viewform?embedded=true"
+                        width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -370,8 +584,8 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Abhishek Dey</h3>
-                <p>Full Stack Java Developer | Software Engineer</p>
+                <h3>Rohit Tiwari</h3>
+                <p>Full Stack Java Developer | AI&ML Developer</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -385,18 +599,19 @@
             <div class="footer-section">
                 <h3>Connect</h3>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/abhishek-deyy/" class=""><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/abhishek-0-7" class=""><i class="fab fa-github"></i></a>
-                    
+                    <a href="https://www.linkedin.com/in/rohittiwari22/" class=""><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/rohittiwari2225/" class=""><i class="fab fa-github"></i></a>
+
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Abhishek Dey. All rights reserved.</p>
+            <p>&copy; 2025 Rohit Tiwari. All rights reserved.</p>
             <p>Designed with <i class="fas fa-heart"></i> and <i class="fab fa-java"></i></p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
