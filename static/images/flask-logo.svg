@@ -1,0 +1,16 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Flask body -->
+    <path d="M 30 20 L 35 35 L 35 75 Q 35 85 45 85 L 55 85 Q 65 85 65 75 L 65 35 L 70 20 Z"
+        fill="#000" stroke="#000" stroke-width="1.5" />
+
+    <!-- Flask stopper -->
+    <rect x="42" y="10" width="16" height="12" fill="#555" rx="2" />
+    <rect x="40" y="8" width="20" height="4" fill="#666" rx="1" />
+
+    <!-- Flask liquid (blue) -->
+    <path d="M 37 60 L 37 75 Q 37 83 45 83 L 55 83 Q 63 83 63 75 L 63 60 Z" fill="#4B8BBE"
+        opacity="0.8" />
+
+    <!-- Highlight -->
+    <ellipse cx="48" cy="25" rx="8" ry="6" fill="#fff" opacity="0.3" />
+</svg>

@@ -695,6 +695,67 @@ body {
     overflow: hidden;
 }
 
+.project-image2 {
+    height: 200px;
+    background-image: url("Acadmia.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.project-image3 {
+    height: 200px;
+    background-image: url("WebScraping.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.project-image1 {
+    height: 200px;
+    background-image: url("DiamondPricePrediction.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.project-image4 {
+    height: 200px;
+    background-image: url("HireX.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.project-image5 {
+    height: 200px;
+    background-image: url("Portfolio.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
 .project-icon {
     font-size: 4rem;
     color: white;
